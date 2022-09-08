@@ -1,28 +1,37 @@
-﻿// Задача 41. Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-Console.Write("Введи число М(количество чисел): ");
-int m = Convert.ToInt32(Console.ReadLine());
-int[] massiveNumbers = new int[m];
+﻿Console.WriteLine("Трехзначные числа: ");
+int[] numbers = new int[10];
 
-void InputNumbers(int m)
-{
-for (int i = 0; i < m; i++)
+void FillArray(int[] array, int min, int max){
+    for (int i = 0; i<array.Length; i++ )
     {
-    Console.Write($"Введи {i+1} число: ");
-    massiveNumbers[i] = Convert.ToInt32(Console.ReadLine());
+    array[i] = new Random().Next(min, max);
     }
 }
 
-
-int Comparison(int[] massiveNumbers)
+void WriteArray(int[] array)
 {
-    int count = 0;
-    for (int i = 0; i < massiveNumbers.Length; i++)
+    for (int i = 0; i<array.Length; i++ )
     {
-    if(massiveNumbers[i] > 0 ) count += 1; 
+    Console.Write(array[i] + " ");
     }
-    return count;
+    Console.WriteLine();
 }
 
-InputNumbers(m);
+int QuantityPositive(int[] array){
+    int quantity = 0;
+    for (int i = 0; i<array.Length; i++ ) 
+    {
+    if (array[i] % 2 == 0)
+    {
+        quantity++;
+    }
+    }
+    return quantity;
+}
 
-Console.WriteLine("Введено чисел больше 0:" + Comparison(massiveNumbers) );
+FillArray(numbers, 100, 1000);
+WriteArray(numbers);
+Console.WriteLine();
+
+int quantity = QuantityPositive(numbers);
+Console.WriteLine("Количество четных чисел:" + quantity);
