@@ -22,4 +22,4 @@ for (int i = 1; i < arrayNumbers.Length; i++)
 
 double decision = maxNumber - minNumber;
 
-Console.WriteLine($"разница между между максимальным ({maxNumber}) и минимальным({minNumber}) элементами: {decision}");
+Console.WriteLine($"||Разница максимального ({maxNumber}) и минимального({minNumber}) элементами: {decision}");
